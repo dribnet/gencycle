@@ -4,7 +4,6 @@
 # `pip install runway-python`.
 import runway
 from runway.data_types import number, text, image, category
-from example_model import ExampleModel
 
 # Setup the model, initialize weights, set the configs of the model, etc.
 # Every model will have a different set of configurations and requirements.
@@ -15,11 +14,32 @@ setup_options = {
     'truncation': number(min=1, max=10, step=1, default=5, description='Example input.'),
     'seed': number(min=0, max=1000000, description='A seed used to initialize the model.')
 }
+
+from genfuncs import do_init, train, synth, emit_filename
+from genfuncs import get_model, get_z
+
+orig_args = argparse.Namespace(
+    image_prompts=[],
+    noise_prompt_seeds=[],
+    noise_prompt_weights=[],
+    init_weight=0.,
+    clip_model='ViT-B/32',
+    vqgan_config='vqgan_imagenet_f16_1024.yaml',
+    vqgan_checkpoint='vqgan_imagenet_f16_1024.ckpt',
+    step_size=0.05,
+    cut_pow=1.,
+    display_freq=50,
+    seed=0,
+)    
+base_size=[240, 135]
+default_prompt = 'flying in the air on a broomstick over a small town with seabirds following along in the style of studio ghibli | artstation | unreal engine'
+
 @runway.setup(options=setup_options)
 def setup(opts):
     msg = '[SETUP] Ran with options: seed = {}, truncation = {}'
     print(msg.format(opts['seed'], opts['truncation']))
-    model = ExampleModel(opts)
+    do_init(orig_args, base_size, [default_prompt], None, 64)
+    model = get_model()
     return model
 
 inputs = {
