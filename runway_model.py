@@ -39,9 +39,9 @@ default_prompt = 'flying in the air on a broomstick over a small town with seabi
 def setup(opts):
     msg = '[SETUP] Ran with options: seed = {}, truncation = {}'
     print(msg.format(opts['seed'], opts['truncation']))
-    # do_init(orig_args, base_size, [default_prompt], None, 64)
-    # model = get_model()
-    model = {}
+    do_init(orig_args, base_size, [default_prompt], None, 64)
+    model = get_model()
+    # model = {}
     return model
 
 inputs = {
@@ -57,12 +57,15 @@ inputs = {
 # outputs data types: https://sdk.runwayml.com/en/latest/data_types.html
 @runway.command(name='generate',
                 inputs=inputs,
-                outputs={ 'image': image(width=512, height=512), 'info': text("hello") },
+                outputs={ 'image': image(width=240, height=135), 'info': text("hello") },
                 description='Generates a red square when the input text input is "red".')
 def generate(model, args):
     print('[GENERATE] Ran with image "{}"'.format(args['image']))
+    z = get_z();
+    out = synth(model, z)
+
     return {
-        'image': arg['image'], 'info': "hello world"
+        'image': out, 'info': "hello world"
     }
     # Generate a PIL or Numpy image based on the input caption, and return it
     # output_image = model.run_on_input(args['image'], args['slices'], args['model'], args['vgg_depth'])

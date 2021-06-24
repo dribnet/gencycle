@@ -106,7 +106,8 @@ def main():
     if args.outfile is not None:
         z = get_z();
         model=get_model()
-        print(z)
+        # print(z)
+        # print(z.shape)
         out = synth(model, z)
         emitted_filename = emit_filename(args.outfile, template_dict)
         TF.to_pil_image(out[0].cpu()).save(emitted_filename)
