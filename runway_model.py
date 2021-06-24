@@ -61,12 +61,15 @@ inputs = {
                 description='Generates a red square when the input text input is "red".')
 def generate(model, args):
     print('[GENERATE] Ran with image "{}"'.format(args['image']))
-    z = get_z();
-    out = synth(model, z)
+    # z = get_z();
+    # out = synth(model, z)
 
-    return {
-        'image': out, 'info': "hello world"
-    }
+    tile1 = Image.open("progress.png").convert(mode='RGB')
+    return {'image': tile1, 'info': "here's a thing"}
+
+    # return {
+    #     'image': out, 'info': "hello world"
+    # }
     # Generate a PIL or Numpy image based on the input caption, and return it
     # output_image = model.run_on_input(args['image'], args['slices'], args['model'], args['vgg_depth'])
     # return {
