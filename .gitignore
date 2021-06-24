@@ -1,3 +1,9 @@
 .DS_Store
 __pycache__
 venv/
+taming-transformers
+CLIP
+outputs
+vqgan_imagenet_f16*
+taming
+progress.png

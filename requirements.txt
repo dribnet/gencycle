@@ -1,13 +1,6 @@
 runway-python
-Pillow==6.2.0
-scikit-learn
-scikit-image
+ftfy
+regex
 tqdm
-umap-learn
-lap
-braceexpand
-imageio
-numpy
-tensorflow==2.0.0
-tensorflow-hub==0.8.0
-keras==2.3.1
+omegaconf
+pytorch-lightning
