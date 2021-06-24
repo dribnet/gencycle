@@ -36,6 +36,7 @@ build_steps:
     - git clone https://github.com/CompVis/taming-transformers
     - python -m pip install --upgrade pip
     - pip install --ignore-installed PyYAML
+    - pip install torch=1.9.0 torchvision=0.10.0
     - pip install ftfy regex tqdm omegaconf pytorch-lightning
     - pip install -r requirements.txt
     - curl -L 'https://heibox.uni-heidelberg.de/d/8088892a516d4e3baf92/files/?p=%2Fconfigs%2Fmodel.yaml&dl=1' > vqgan_imagenet_f16_1024.yaml
