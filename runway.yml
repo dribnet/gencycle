@@ -37,7 +37,7 @@ build_steps:
     - python -m pip install --upgrade pip
     - pip install --ignore-installed PyYAML
     # - pip install torch==1.9.0 torchvision==0.10.0
-    - pip install torch==1.8.0+cu101 torchvision
+    - pip install torch==1.8.1+cu101 torchvision -f https://download.pytorch.org/whl/torch_stable.html
     # - pip install torchvision
     - pip install ftfy regex tqdm omegaconf pytorch-lightning einops
     - pip install -r requirements.txt
