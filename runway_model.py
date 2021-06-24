@@ -4,6 +4,7 @@
 # `pip install runway-python`.
 import runway
 from runway.data_types import number, text, image, category
+import argparse
 
 # Setup the model, initialize weights, set the configs of the model, etc.
 # Every model will have a different set of configurations and requirements.
