@@ -39,8 +39,9 @@ default_prompt = 'flying in the air on a broomstick over a small town with seabi
 def setup(opts):
     msg = '[SETUP] Ran with options: seed = {}, truncation = {}'
     print(msg.format(opts['seed'], opts['truncation']))
-    do_init(orig_args, base_size, [default_prompt], None, 64)
-    model = get_model()
+    # do_init(orig_args, base_size, [default_prompt], None, 64)
+    # model = get_model()
+    model = {}
     return model
 
 inputs = {
