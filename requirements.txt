@@ -1,6 +1,1 @@
 runway-python
-ftfy
-regex
-tqdm
-omegaconf
-pytorch-lightning
